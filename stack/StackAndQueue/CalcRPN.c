@@ -122,6 +122,7 @@ void Mid2Rpn(sqStack *s, sqStack *sRpn)
                     }
                     else
                     {
+                        //当+ -遇到其他符号，先输出高优先级的符号，把栈打空
                         printf("%c ", (char)popValue);
                         Push(sRpn, popValue);
                         Push(sRpn, ' ');
@@ -151,7 +152,7 @@ void Mid2Rpn(sqStack *s, sqStack *sRpn)
         scanf("%c", &c);
     }
 
-
+    //栈内剩余的符号
     while( StackLen(*s) )
     {
         Pop(s, &popValue);
